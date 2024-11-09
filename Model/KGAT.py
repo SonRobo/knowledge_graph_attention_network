@@ -115,7 +115,7 @@ class KGAT(object):
     def _build_weights(self):
         all_weights = dict()
 
-        initializer = tf.contrib.layers.xavier_initializer()
+        initializer = tf.keras.initializers.GlorotUniform()
 
         if self.pretrain_data is None:
             all_weights['user_embed'] = tf.Variable(initializer([self.n_users, self.emb_dim]), name='user_embed')
