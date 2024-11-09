@@ -95,22 +95,22 @@ class KGAT(object):
 
     def _build_inputs(self):
         # placeholder definition
-        self.users = tf.placeholder()(tf.int32, shape=(None,))
-        self.pos_items = tf.placeholder()(tf.int32, shape=(None,))
-        self.neg_items = tf.placeholder()(tf.int32, shape=(None,))
+        self.users = tf.placeholder(tf.int32, shape=(None,))
+        self.pos_items = tf.placeholder(tf.int32, shape=(None,))
+        self.neg_items = tf.placeholder(tf.int32, shape=(None,))
 
         # for knowledge graph modeling (TransD)
-        self.A_values = tf.placeholder()(tf.float32, shape=[len(self.all_v_list)], name='A_values')
+        self.A_values = tf.placeholder(tf.float32, shape=[len(self.all_v_list)], name='A_values')
 
-        self.h = tf.placeholder()(tf.int32, shape=[None], name='h')
-        self.r = tf.placeholder()(tf.int32, shape=[None], name='r')
-        self.pos_t = tf.placeholder()(tf.int32, shape=[None], name='pos_t')
-        self.neg_t = tf.placeholder()(tf.int32, shape=[None], name='neg_t')
+        self.h = tf.placeholder(tf.int32, shape=[None], name='h')
+        self.r = tf.placeholder(tf.int32, shape=[None], name='r')
+        self.pos_t = tf.placeholder(tf.int32, shape=[None], name='pos_t')
+        self.neg_t = tf.placeholder(tf.int32, shape=[None], name='neg_t')
 
         # dropout: node dropout (adopted on the ego-networks);
         # message dropout (adopted on the convolution operations).
-        self.node_dropout = tf.placeholder()(tf.float32, shape=[None])
-        self.mess_dropout = tf.placeholder()(tf.float32, shape=[None])
+        self.node_dropout = tf.placeholder(tf.float32, shape=[None])
+        self.mess_dropout = tf.placeholder(tf.float32, shape=[None])
 
     def _build_weights(self):
         all_weights = dict()
