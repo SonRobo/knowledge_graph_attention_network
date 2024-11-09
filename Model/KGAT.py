@@ -95,17 +95,17 @@ class KGAT(object):
 
     def _build_inputs(self):
         # placeholder definition
-        self.users = tf.keras.Input(tf.int32, shape=(None,))
-        self.pos_items = tf.keras.Input(tf.int32, shape=(None,))
-        self.neg_items = tf.keras.Input(tf.int32, shape=(None,))
+        self.users = tf.keras.Input(dtype=tf.int32, shape=(None,))
+        self.pos_items = tf.keras.Input(dtype=tf.int32, shape=(None,))
+        self.neg_items = tf.keras.Input(dtype=tf.int32, shape=(None,))
 
         # for knowledge graph modeling (TransD)
         self.A_values = tf.keras.Input(tf.float32, shape=[len(self.all_v_list)], name='A_values')
 
-        self.h = tf.keras.Input(tf.int32, shape=[None], name='h')
-        self.r = tf.keras.Input(tf.int32, shape=[None], name='r')
-        self.pos_t = tf.keras.Input(tf.int32, shape=[None], name='pos_t')
-        self.neg_t = tf.keras.Input(tf.int32, shape=[None], name='neg_t')
+        self.h = tf.keras.Input(dtype=tf.int32, shape=[None], name='h')
+        self.r = tf.keras.Input(dtype=tf.int32, shape=[None], name='r')
+        self.pos_t = tf.keras.Input(dtype=tf.int32, shape=[None], name='pos_t')
+        self.neg_t = tf.keras.Input(dtype=tf.int32, shape=[None], name='neg_t')
 
         # dropout: node dropout (adopted on the ego-networks);
         # message dropout (adopted on the convolution operations).
